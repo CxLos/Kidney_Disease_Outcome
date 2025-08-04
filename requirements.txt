@@ -31,14 +31,14 @@ gspread==6.2.0
 httplib2==0.22.0
 idna==3.10
 importlib_metadata==8.6.1
-ipykernel==6.29.5
-ipython==8.32.0
+# ipykernel==6.29.5
+# ipython==8.32.0
 itsdangerous==2.2.0
 jedi==0.19.2
 Jinja2==3.1.5
 joblib==1.5.1
 jupyter_client==8.6.3
-jupyter_core==5.7.2
+# jupyter_core==5.7.2
 kaggle==1.7.4.5
 kagglehub==0.3.12
 kiwisolver==1.4.8
@@ -71,7 +71,7 @@ pyparsing==3.2.1
 python-dateutil==2.9.0.post0
 python-slugify==8.0.4
 pytz==2025.1
-pywin32==308
+# pywin32==308
 PyYAML==6.0.2
 pyzmq==26.2.1
 requests==2.32.3

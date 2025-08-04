@@ -602,7 +602,7 @@ if __name__ == '__main__':
 # ---------------------------------------------- Host Application -------------------------------------------
 
 # 1. pip freeze > requirements.txt
-# 2. add this to procfile: 'web: gunicorn impact_11_2024:server'
+# 2. add this to procfile: 'web: gunicorn kidney_disease:server'
 # 3. heroku login
 # 4. heroku create
 # 5. git push heroku main
@@ -632,8 +632,8 @@ if __name__ == '__main__':
 
 # Heroku Setup:
 # heroku login
-# heroku create mc-impact-11-2024
-# heroku git:remote -a mc-impact-11-2024
+# heroku create kidney-disease-outcome
+# heroku git:remote -a kidney-disease-outcome
 # git push heroku main
 
 # Clear Heroku Cache:
