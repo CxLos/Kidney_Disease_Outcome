@@ -621,10 +621,15 @@ if __name__ == '__main__':
 # pipdeptree
 # pip show package-name
 
-# Remove
+# Remove:
 # pypiwin32
 # pywin32
 # jupytercore
+# ipykernel
+# ipython
+
+# Add:
+# gunicorn==22.0.0
 
 # ----------------------------------------------------
 
