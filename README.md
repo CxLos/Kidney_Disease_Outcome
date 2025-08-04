@@ -2,7 +2,7 @@
 
 ## Description
 
-
+This project leverages machine learning to predict the likelihood of chronic kidney disease (CKD) using a clinical dataset. The goal is to assist in early detection of CKD by analyzing relevant patient biomarkers and visualizing key insights through an interactive Plotly/Dash dashboard. The project includes preprocessing, training a model, evaluating performance, and highlighting feature importance.
 
 ## Table of Contents 
 	
@@ -32,57 +32,72 @@ To run this project locally, follow these steps:
 
 ## Usage
 
-- This is an interactive Plotly/Dash dashboard. Please feel free to hover over any interesting data points that you would like to take a deeper dive on and zoom or zoom out to get a better view.
+- This is an interactive Plotly/Dash dashboard. You can explore different aspects of the data, including class distribution, prediction outcomes, and feature importance. Hover over charts for tooltips and use zoom to inspect data more closely.
 
-- To launch the dashboard, execute the following command in your terminal or click the following link:
+- To launch the dashboard locally:
+    ```bash
+    python kidney_disease.py
+    ```
 
-  <!-- - [Kidney Disease Outcome Dashboard - OnRender](https://kidney_disease_outcome.onrender.com/) -->
-  - [Kidney Disease Outome - Heroku](https://-f697948dcc39.herokuapp.com/)
+- Or access the live version here:  
+  🌐 [Kidney Disease Outcome Dashboard](https://kidney-disease-outcome-fc4ec49235f0.herokuapp.com/)
 
-```bash
-python kidney_disease.py
-```
+![Preview](./screenshots/Screenshot-163423.png)
 
 ![Preview](./screenshots/Screenshot-163423.png)
 
 ## Methodology
 
-The data for this project was sourced directly from Kaggle
+- Dataset: The dataset was sourced from Kaggle. It contains clinical measurements for 400+ patients across features like blood pressure, albumin, hemoglobin levels, etc.
 
-## Plans for collected data:
+- **Preprocessing**:
+  - Handled missing values and outliers
+  - Encoded categorical features
+  - Normalized numerical columns
 
-- 
--
--
--
+- **Modeling**:
+    - Trained a logistic regression classifier
+    - Evaluated using accuracy, precision, recall, F1-score
+    - Assessed feature importance to understand key drivers of prediction
 
-## Findings
+## Results
 
-### 
+## 📊 Model Performance
 
-* 
+To evaluate the classification models used for predicting Chronic Kidney Disease (CKD), we compared **Logistic Regression**, **Decision Tree**, and **Random Forest** using five key performance metrics:
 
-### 
+- **Accuracy**: Overall correctness of the model.
+- **Precision**: When the model predicts CKD, how often is it correct?
+- **Recall**: How well does the model identify actual CKD cases?
+- **F1 Score**: Harmonic mean of precision and recall, especially useful for imbalanced classes.
+- **Jaccard Score**: Measures similarity between predicted and actual labels.
 
-* 
+| Model                | Accuracy | Precision | Recall | F1 Score | Jaccard |
+|---------------------|----------|-----------|--------|----------|---------|
+| Logistic Regression | 0.6247   | 0.6348    | 0.6213 | 0.6280   | 0.4577  |
+| Decision Tree       | 0.6616   | 0.6710    | 0.6596 | 0.6652   | 0.4984  |
+| Random Forest       | 0.7072   | 0.7841    | 0.5872 | 0.6715   | 0.5055  |
 
-### 
+### 🔍 Insights
 
-* 
+- **Random Forest** achieved the highest overall performance in accuracy and F1 score, indicating a strong balance between precision and recall.
+- **Decision Tree** showed decent performance but slightly lagged behind Random Forest.
+- **Logistic Regression** had the lowest scores across most metrics, making it the least effective model in this comparison.
 
-### 
 
-* 
+### Feature Importance
+
+The dashboard highlights the most influential features contributing to the model's prediction. This allows users and clinicians to better understand what clinical indicators matter most.
 
 ## Conclusion
 
-
+This project demonstrates the application of machine learning for health diagnostics. By combining statistical insights with interactive visualizations, it offers a powerful tool for analyzing kidney disease outcomes. Future improvements could include using ensemble models or deploying the app with live patient data integration.
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 CxLos
+© 2025 CxLos
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

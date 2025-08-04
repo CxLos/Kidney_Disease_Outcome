@@ -23,7 +23,7 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, ConfusionMatrixDisplay, roc_curve, auc
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, jaccard_score, confusion_matrix, classification_report, ConfusionMatrixDisplay, roc_curve, auc
 # from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
 # from sklearn.pipeline import Pipeline
 
@@ -116,10 +116,6 @@ y = df[target]
 scaler = StandardScaler()
 
 # Fit and transform the features so they have a mean of 0 and a standard deviation of 1
-# The above code is using a scaler object to transform the data in the variable X. The fit_transform
-# method is being called on the scaler object to both fit the scaler to the data and transform the
-# data using the fitted scaler. This is commonly used in machine learning workflows to scale or
-# normalize the features in the dataset before training a model.
 X_scaled = scaler.fit_transform(X)
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -154,13 +150,29 @@ cv_scores = cross_val_score(RandomForestClassifier(), X_scaled, y, cv=5)
 
 models = {'Logistic Regression': log_reg, 'Decision Tree': dt, 'Random Forest': rf}
 
-# for name, model in models.items():
-#     y_pred = model.predict(X_test)
-#     print(f"=== {name} ===")
-#     print("Accuracy:", accuracy_score(y_test, y_pred))
-#     print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
-#     print("Classification Report:\n", classification_report(y_test, y_pred))
-#     print("\n")
+metrics_summary = []
+
+for name, model in models.items():
+    y_pred = model.predict(X_test)
+
+    acc = accuracy_score(y_test, y_pred)
+    prec = precision_score(y_test, y_pred, pos_label=1)
+    rec = recall_score(y_test, y_pred, pos_label=1)
+    f1 = f1_score(y_test, y_pred, pos_label=1)
+    jaccard = jaccard_score(y_test, y_pred, pos_label=1)
+
+    metrics_summary.append({
+        'Model': name,
+        'Accuracy': acc,
+        'Precision': prec,
+        'Recall': rec,
+        'F1 Score': f1,
+        'Jaccard': jaccard
+    })
+
+# Convert to DataFrame for visualization or printing
+df_metrics = pd.DataFrame(metrics_summary)
+print(df_metrics)
 
 # ============================== Data Visualization ========================== #
 
@@ -175,6 +187,82 @@ models = {'Logistic Regression': log_reg, 'Decision Tree': dt, 'Random Forest': 
 # # Set default font size for plotly
 # px.defaults.font_size = 18
 
+# ========================== Model Performance Metrics ========================== #
+
+# Convert wide df_metrics to long format for bar plot
+df_long = df_metrics.melt(id_vars='Model', 
+                          value_vars=['Accuracy', 'Precision', 'Recall', 'F1 Score', 'Jaccard'],
+                          var_name='Metric', 
+                          value_name='Score')
+
+df_long = df_metrics.melt(
+    id_vars='Model',
+    value_vars=['Accuracy', 'Precision', 'Recall', 'F1 Score', 'Jaccard'],
+    var_name='Metric',
+    value_name='Score'
+)
+
+# Create grouped horizontal bar chart
+metrics_bar = px.bar(
+    df_long,
+    x='Score',
+    y='Metric',
+    color='Model',
+    barmode='group',
+    orientation='h',
+    text=df_long['Score'].apply(lambda x: f"{x:.2%}"),
+)
+
+# Customize layout
+metrics_bar.update_layout(
+    height=700,
+    width=1000,
+    title=dict(
+        text='Model Performance Metrics',
+        x=0.5,
+        font=dict(
+            size=25,
+            family='Calibri',
+            color='black',
+        )
+    ),
+    font=dict(
+        family='Calibri',
+        size=18,
+        color='black'
+    ),
+    xaxis=dict(
+        title=dict(
+            text='Score',
+            font=dict(size=20),
+        ),
+        range=[0, 1],
+        tickformat='.0%',
+    ),
+    yaxis=dict(
+        title=dict(
+            text='Metric',
+            font=dict(size=20),
+        ),
+        tickfont=dict(size=18)
+    ),
+    legend=dict(
+        title_text='Model',
+        orientation="v",
+        x=1.05,
+        y=1,
+        xanchor="left",
+        yanchor="top",
+    ),
+    hovermode='closest',
+    bargap=0.15,
+    bargroupgap=0.05,
+)
+
+metrics_bar.update_traces(
+    textposition='auto',
+    hovertemplate='<b>Model:</b> %{color}<br><b>Metric:</b> %{y}<br><b>Score:</b> %{text}<extra></extra>'
+)
 
 # ---------------------------- CKD Status Distribution ----------------------- #
 
@@ -520,7 +608,7 @@ app.layout = html.Div(
                     className='graph2',
                     children=[
                         dcc.Graph(
-                            # figure=
+                            figure=metrics_bar
                         )
                     ]
                 )
