@@ -19,11 +19,11 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/CxLos/Kidney_Disease
+    git clone https://github.com/CxLos/Kidney_Disease_Outcome
     ```
 2. Navigate to the project directory:
     ```bash
-    cd Kidney Disease
+    cd Kidney_Disease_Outcome
     ```
 3. Install the required dependencies:
     ```bash

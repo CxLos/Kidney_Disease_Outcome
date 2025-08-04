@@ -40,11 +40,12 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 # print(f"Current Directory: {current_dir}")
 # print(f"Current File: {current_file}")
 # print(f"Script Directory: {script_dir}")
-
 # con = sqlite3.connect("Chicago_Schools.db")
 # cur = con.cursor()
 
-file = r'c:\Users\CxLos\OneDrive\Documents\Portfolio Projects\Machine Learning\Kidney_Disease_Outcome\data\kidney_disease_dataset.xlsx'
+# file = r'c:\Users\CxLos\OneDrive\Documents\Portfolio Projects\Machine Learning\Kidney_Disease_Outcome\data\kidney_disease_dataset.xlsx'
+
+file = os.path.join(script_dir, 'data', 'kidney_disease_dataset.xlsx')
 
 df = pd.read_excel(file)
 
