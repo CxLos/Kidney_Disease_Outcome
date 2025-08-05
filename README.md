@@ -44,11 +44,9 @@ To run this project locally, follow these steps:
 
 ![Preview](./screenshots/Screenshot-163423.png)
 
-![Preview](./screenshots/Screenshot-163423.png)
-
 ## Methodology
 
-- Dataset: The dataset was sourced from Kaggle. It contains clinical measurements for 400+ patients across features like blood pressure, albumin, hemoglobin levels, etc.
+- Dataset: The dataset was sourced from Kaggle. It contains clinical measurements for 2,300+ patients across features like blood pressure, BUN, creatinine, etc.
 
 - **Preprocessing**:
   - Handled missing values and outliers

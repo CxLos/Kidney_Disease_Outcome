@@ -50,7 +50,7 @@ file = os.path.join(script_dir, 'data', 'kidney_disease_dataset.xlsx')
 df = pd.read_excel(file)
 
 # print(df.head(10))
-# print(f'DF Shape: \n {df.shape}')
+print(f'DF Shape: \n {df.shape}')
 # print(f'Number of rows: {df.shape[0]}')
 # print(f'Column names: \n {df.columns}')
 # print(df.info())
@@ -172,7 +172,7 @@ for name, model in models.items():
 
 # Convert to DataFrame for visualization or printing
 df_metrics = pd.DataFrame(metrics_summary)
-print(df_metrics)
+# print(df_metrics)
 
 # ============================== Data Visualization ========================== #
 
@@ -215,8 +215,8 @@ metrics_bar = px.bar(
 
 # Customize layout
 metrics_bar.update_layout(
-    height=700,
-    width=1000,
+    height=600,
+    width=800,
     title=dict(
         text='Model Performance Metrics',
         x=0.5,
@@ -280,8 +280,8 @@ ckd_bar = px.bar(
     color='CKD Status',
     text='Count',
 ).update_layout(
-    height=700, 
-    width=900,
+    height=600, 
+    width=800,
     title=dict(
         text='CKD Status Distribution',
         x=0.5, 
@@ -346,7 +346,7 @@ fig_cm.update_layout(
     font=dict(family='Calibri', size=16),
     title_x=0.5,
     width=700,
-    height=700
+    height=600
 )
 
 # =========================== Feature Importance ========================== #
@@ -366,8 +366,8 @@ fig_fi = px.bar(
     text='Importance',
     color='Feature'
 ).update_layout(
-    height=700,
-    width=900,
+    height=600,
+    width=800,
     title_x=0.5,
     font=dict(family='Calibri', size=18),
     xaxis_title='Feature',
@@ -392,8 +392,8 @@ fig_score_dist = px.histogram(
     title_x=0.5,
     font=dict(family='Calibri', size=18),
     bargap=0,
-    width=1000,
-    height=700,
+    width=800,
+    height=600,
 ).update_traces(
     marker=dict(
         line=dict(
@@ -416,7 +416,7 @@ fig_roc.update_layout(
     xaxis_title='False Positive Rate',
     yaxis_title='True Positive Rate',
     title_x=0.5,
-    width=900,
+    width=800,
     height=600,
     font=dict(family='Calibri', size=18)
 )
