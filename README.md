@@ -13,7 +13,7 @@ This project leverages machine learning to predict the likelihood of chronic kid
 - [Conclusion](#conclusion)
 - [License](#license)
 
-## Installation
+## 📦 Installation
 
 To run this project locally, follow these steps:
 
@@ -30,7 +30,7 @@ To run this project locally, follow these steps:
     pip install -r requirements.txt
     ```
 
-## Usage
+## ▶️ Usage
 
 - This is an interactive Plotly/Dash dashboard. You can explore different aspects of the data, including class distribution, prediction outcomes, and feature importance. Hover over charts for tooltips and use zoom to inspect data more closely.
 
@@ -44,7 +44,7 @@ To run this project locally, follow these steps:
 
 ![Preview](./screenshots/Screenshot-163423.png)
 
-## Methodology
+## 🧪 Methodology
 
 - Dataset: The dataset was sourced from Kaggle. It contains clinical measurements for 2,300+ patients across features like blood pressure, BUN, creatinine, etc.
 
@@ -87,11 +87,11 @@ To evaluate the classification models used for predicting Chronic Kidney Disease
 
 The dashboard highlights the most influential features contributing to the model's prediction. This allows users and clinicians to better understand what clinical indicators matter most.
 
-## Conclusion
+## ✅ Conclusion
 
 This project demonstrates the application of machine learning for health diagnostics. By combining statistical insights with interactive visualizations, it offers a powerful tool for analyzing kidney disease outcomes. Future improvements could include using ensemble models or deploying the app with live patient data integration.
 
-## License
+## 📄 License
 
 MIT License
 
