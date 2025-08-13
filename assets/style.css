@@ -37,26 +37,30 @@
   margin: 0px auto;
 }
 
-.btn {
-  display: inline-block;
-  text-align: center;
-  margin: 20px 15px 15px 15px;
+.repo-btn {
+  /* display: inline-block; */
+  border: 1px solid black;
+  border-radius: 2px;
+
   color:black;
   background-color: lightgray;
-  border: 2px solid black;
-  border-radius: 10px;
-  font-size: 20px;
+
+  font-size: 15px;
   font-family: 'Calibri';
-  padding: 5px 7px;
+  text-align: center;
   text-decoration: none;
+
+  margin: 20px 15px 15px 15px;
+  padding: 1px 6px 2px 6px;
 }
 
-.btn:hover {
-  opacity: 0.7; /* Set the opacity to 70% on hover */
+.repo-btn:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
-.btn:active {
-  transform: translate(0, 3px); /* Move the button 10 pixels down on hover */
+.repo-btn:active {
+  transform: translate(0, 3px);
 }
 
 .row0 {
@@ -66,6 +70,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  border-top: 2px solid rgb(186, 186, 186);
   border-bottom: 2px solid rgb(186, 186, 186);
 }
 

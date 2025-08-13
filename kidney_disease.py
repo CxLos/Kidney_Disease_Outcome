@@ -462,14 +462,14 @@ app.layout = html.Div(
             className='divv', 
             children=[ 
                 html.H1('Predicting Kidney Disease Outcome', className='title'),
-                # html.H1(f'', className='title2'),
+                html.H1('Machine Learning Models for Clinical Risk Assessment', className='title2'),
                 html.Div(
                     className='btn-box', 
                     children=[
                         html.A(
                             'Repo',
                             href=f'https://github.com/CxLos/Kidney_Disease_Outcome',
-                            className='btn'
+                            className='repo-btn'
                         )
                     ]
                 )
