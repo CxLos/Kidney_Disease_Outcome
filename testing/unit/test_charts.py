@@ -13,7 +13,6 @@ from app.visuals.charts import (
     build_data_table,
 )
 
-
 # ========================== Shared Fixtures ========================== #
 
 @pytest.fixture(scope='module')
