@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 # FROM python:3.11-slim
 FROM python:3.11-slim-bullseye
 
@@ -13,8 +14,9 @@ RUN apt-get update && apt-get upgrade -y --no-install-recommends \
 
 # Install dependencies first (layer-cached), then upgrade vulnerable build tools
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt \
-    && pip install --no-cache-dir --upgrade "wheel>=0.46.2" setuptools
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install -r requirements.txt \
+    && pip install --upgrade "wheel>=0.46.2" setuptools
 
 # Copy application code
 COPY . .
