@@ -13,7 +13,7 @@ from app.layouts.layout import create_layout
 # =========================== DASH APP ========================== #
 
 assets_folder = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'assets')
-app = dash.Dash(__name__, assets_folder=assets_folder)
+app = dash.Dash(__name__, assets_folder=assets_folder, title="Kidney Disease Outcome", suppress_callback_exceptions=True)
 server = app.server
 
 app.layout = create_layout()
